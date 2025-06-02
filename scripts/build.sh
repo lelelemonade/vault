@@ -43,6 +43,7 @@ mkdir -p bin/
 echo "==> Building..."
 ${GO_CMD} build \
     -gcflags "${GCFLAGS}" \
+    -buildvcs=false \
     -ldflags "${LD_FLAGS} -X github.com/hashicorp/vault/version.GitCommit='${GIT_COMMIT}${GIT_DIRTY}' -X github.com/hashicorp/vault/version.BuildDate=${BUILD_DATE}" \
     -o "bin/vault" \
     -tags "${BUILD_TAGS}" \
